@@ -41,26 +41,3 @@ function numberOfDays(Y, M) {
   }
 }
 
-// another
-
-const numberOfDays = function(Y, M) {
-    return new Date(Y,M,0).getDate();
-};
-
-// another
-
-/**
- * @param {number} Y
- * @param {number} M
- * @return {number}
- */
-const numberOfDays = function(Y, M) {
-  const d = new Date(Y, M - 1)
-  let num = 0
-  while(d.getMonth() === M - 1) {
-    num++
-    const n = d.getDate()
-    d.setDate(n + 1)
-  }
-  return num
-};

@@ -24,19 +24,3 @@ const minIncrementForUnique = function(nums) {
   }
 };
 
-// another
-
-/**
- * @param {number[]} nums
- * @return {number}
- */
-const minIncrementForUnique = function(nums) {
-  let res = 0, nxt = 0
-  nums.sort((a, b) => a - b)
-  for(const e of nums) {
-    res += Math.max(0, nxt - e)
-    nxt = Math.max(nxt, e) + 1
-  }
-  
-  return res
-};

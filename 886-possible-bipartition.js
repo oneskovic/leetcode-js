@@ -34,38 +34,3 @@ const possibleBipartition = function (N, dislikes) {
   return true
 }
 
-// another
-
-/**
- * @param {number} N
- * @param {number[][]} dislikes
- * @return {boolean}
- */
-const possibleBipartition = function (N, dislikes) {
-  const graph = new Array(N + 1)
-  for (const [a, b] of dislikes) {
-    if (!graph[a]) graph[a] = []
-    graph[a].push(b)
-    if (!graph[b]) graph[b] = []
-    graph[b].push(a)
-  }
-
-  const colors = new Array(N + 1)
-  const dfs = (node, color = 0) => {
-    colors[node] = color
-    const nextColor = color ^ 1
-    const children = graph[node] || []
-    for (const child of children) {
-      if (colors[child] !== undefined) {
-        if (colors[child] !== nextColor) return false
-      } else {
-        if (!dfs(child, nextColor)) return false
-      }
-    }
-    return true
-  }
-  for (let i = 1; i <= N; i++) {
-    if (colors[i] === undefined && !dfs(i)) return false
-  }
-  return true
-}

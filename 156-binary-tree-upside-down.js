@@ -22,16 +22,3 @@ const upsideDownBinaryTree = function(root) {
   return parent
 };
 
-// another
-
-const upsideDownBinaryTree = function(root) {
-  if (root == null || root.left == null) {
-    return root
-  }
-  const newRoot = upsideDownBinaryTree(root.left)
-  root.left.left = root.right
-  root.left.right = root
-  root.left = null
-  root.right = null
-  return newRoot
-}

@@ -20,26 +20,3 @@ const recursionHelper = function(n, m) {
   return res
 }
 
-// another
-
-/**
- * @param {number} n
- * @return {string[]}
- */
-const findStrobogrammatic = function(n) {
-  let cur, ans
-  ans = (n & 1) == 0 ? [''] : ['0', '1', '8']
-  if (n < 2) return ans
-  for (; n > 1; n -= 2) {
-    cur = ans
-    ans = []
-    for (let i of cur) {
-      if (n > 3) ans.push('0' + i + '0')
-      ans.push('1' + i + '1')
-      ans.push('8' + i + '8')
-      ans.push('6' + i + '9')
-      ans.push('9' + i + '6')
-    }
-  }
-  return ans
-}

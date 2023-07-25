@@ -40,14 +40,3 @@ function arrToStr(arr) {
   return res
 }
 
-// another
-
-const smallestFromLeaf = function(root) {
-    if (!root) return ''
-    const char = String.fromCharCode(97 + root.val)
-    let left = smallestFromLeaf(root.left)
-    let right = smallestFromLeaf(root.right)
-    if (!left) return right + char
-    if (!right) return left + char
-    return (left < right ? left : right) + char
-};

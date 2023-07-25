@@ -38,28 +38,3 @@ const plusOneRecursion = node => {
   return 0
 }
 
-// another
-
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-const plusOne = function(head) {
-  const dummy = new ListNode(0)
-  dummy.next = head
-  let node = head
-  let lastNotNine = dummy
-  while(node) {
-    if(node.val !== 9) lastNotNine = node
-    node = node.next
-  }
-  lastNotNine.val++
-  node = lastNotNine.next
-  while(node) {
-    node.val = 0
-    node = node.next
-  }
-  return dummy.val === 1 ? dummy : dummy.next
-}
-
-

@@ -33,36 +33,3 @@ const reinitializePermutation = function(n) {
   }
 };
 
-// another
-
-/**
- * @param {number} n
- * @return {number}
- */
-const reinitializePermutation = function(n) {
-  let res = 0, i = 1;
-  while (res === 0 || i > 1) {
-    i = i * 2 % (n - 1);
-    res++;
-  }
-  return res;
-};
-
-// another
-
-/**
- * @param {number} n
- * @return {number}
- */
-const reinitializePermutation = function(n) {
-	if (n === 2) return 1
-	const mod = n - 1
-	let curr_power = 2
-	let cnt = 1
-	// Find multiplicative order modulo n-1
-	while (curr_power !== 1) {
-		curr_power = (2 * curr_power) % mod
-		cnt++
-  }
-	return cnt
-};

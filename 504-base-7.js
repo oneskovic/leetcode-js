@@ -16,8 +16,3 @@ const convertToBase7 = function(num) {
   return sign === '+' ? res : '-' + res
 };
 
-// another
-
-const convertToBase7 = function(num) {
-  return num.toString(7)
-};

@@ -36,37 +36,3 @@ const solveSudoku = function(board) {
 }
 
 
-// another
-
-/**
- * @param {character[][]} board
- * @return {void} Do not return anything, modify board in-place instead.
- */
-const solveSudoku = function(board) {
-  helper(board, 0 , 0)
-};
-
-function helper(board, row, col) {
-  if(row >= 9) return true
-  if(col >= 9) return helper(board, row + 1, 0)
-  if(board[row][col] !== '.') return helper(board, row, col + 1)
-  for(let i = 1; i <= 9; i++) {
-    const ch = `${i}`
-    if(valid(board, row, col, ch)) {
-      board[row][col] = ch
-      if(helper(board, row, col + 1)) return true
-      board[row][col] = '.'
-    }
-  }
-  return false
-}
-
-function valid(board, row, col, ch) {
-  const blkRow = ~~(row / 3), blkCol = ~~(col / 3)
-  for(let i = 0; i < 9; i++) {
-    if(board[row][i] === ch) return false
-    if(board[i][col] === ch) return false
-    if(board[blkRow * 3 + Math.floor(i / 3)][blkCol * 3 + (i % 3)] === ch) return false
-  }
-  return true
-}

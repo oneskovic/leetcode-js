@@ -9,12 +9,3 @@ const singleNumber = function(nums) {
 };
 
 
-// another
-
-/**
- * @param {number[]} nums
- * @return {number}
- */
-const singleNumber = function(nums) {
-  return nums.reduce((ac, e) => ac ^ e, 0)
-};

@@ -26,24 +26,3 @@ const bestRotation = function(A) {
   return ans
 }
 
-// another
-
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var bestRotation = function(nums) {
-  const n = nums.length
-  const arr = Array(n).fill(0)
-  for(let i = 0; i < n; i++) {
-    arr[(i - nums[i] + 1 + n) % n] -= 1
-  }
-  let res = 0
-  for(let i = 1; i < n; i++) {
-    arr[i] += arr[i - 1] + 1
-    if(arr[i] > arr[res]) res = i
-  }
-  return res
-};
-
-
