@@ -12,4 +12,6 @@ for js_file in js_files:
         # Rewrite the file
         with open(js_file, 'w', encoding='utf-8') as f:
             f.writelines(new_lines)
-        
+    # Rename the file - replace first '-' with '.'
+    new_name = js_file.replace('-', '.', 1)
+    os.rename(js_file, new_name)        
